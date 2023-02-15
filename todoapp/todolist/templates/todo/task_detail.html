@@ -1,0 +1,13 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+  <h1>{{ task.name }}</h1>
+  <p>{{ task.description }}</p>
+  {% if task.completed %}
+    <p>Completed</p>
+  {% else %}
+    <p>Not completed</p>
+  {% endif %}
+  <a href="{% url 'task_edit' task.pk %}">Edit</a>
+  <a href="{% url 'task_delete' task.pk %}">Delete</a>
+{% endblock %}
